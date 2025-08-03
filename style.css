@@ -1,0 +1,111 @@
+:root {
+  --accent: #007bff;
+  --accent-dark: #0056b3;
+  --bg: #f7f7f7;
+  --fg: #222;
+  --muted: #888;
+  --card: #fff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, sans-serif;
+  background: var(--bg);
+  color: var(--fg);
+}
+
+header, footer {
+  text-align: center;
+  padding: 1rem 0.5rem;
+}
+
+#subtitle {
+  color: var(--muted);
+  margin-top: 0.25rem;
+}
+
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 1rem 3rem;
+}
+
+#viz {
+  background: var(--card);
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  min-height: 480px;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.06);
+  position: relative;
+  padding: 0.5rem;
+}
+
+#controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin: 1rem 0;
+  font-weight: 500;
+}
+
+#controls button {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 0.6rem 1.1rem;
+  cursor: pointer;
+  font-size: 1rem;
+}
+#controls button:hover {
+  background: var(--accent-dark);
+}
+#slideIndicator {
+  color: var(--muted);
+}
+
+#jumpDots {
+  display: flex;
+  justify-content: center;
+  gap: 0.4rem;
+}
+#jumpDots button {
+  width: 12px;
+  height: 12px;
+  border-radius: 9999px;
+  border: 0;
+  background: #ccc;
+  cursor: pointer;
+}
+#jumpDots button.active {
+  background: var(--accent);
+}
+
+svg {
+  width: 100%;
+  height: 480px;
+}
+
+.annotation-note-label {
+  font-size: 13px;
+  fill: #333;
+}
+
+#scene-caption {
+  max-width: 900px;
+  margin: 0 auto 1.5rem auto;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+  padding: 2rem 2.5rem;
+  font-size: 1.15rem;
+  color: #222;
+  line-height: 1.7;
+  font-family: 'Georgia', serif;
+  letter-spacing: 0.01em;
+}
