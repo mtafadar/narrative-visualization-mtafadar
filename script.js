@@ -117,7 +117,7 @@ function renderScene(sceneIndex) {
       WIDTH,
       HEIGHT,
       MARGIN,
-      captionText: `Crime breakdown for 2025: Which types are most common? This chart shows the number of reported crimes by type for the latest year in the dataset. Hover bars for details.`
+      captionText: `Crime breakdown for 2025`
     });
   }
 }
