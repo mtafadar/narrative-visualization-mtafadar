@@ -106,8 +106,9 @@ function renderScene(sceneIndex) {
       crimeData: animationData,
       COLORS,
       WIDTH,
-      HEIGHT,
-      captionText: `Animated map of Chicago crimes (2018–2025). Crimes appear over time, showing spatial and temporal patterns. Only Date, Primary Type, Latitude, Longitude, and Description are used.`
+      captionText: `Animated map of Chicago crimes (2022–2025)`,
+      HEIGHT
+      
     });
   } else if (sceneIndex === 5) {
     sceneTrendLine({

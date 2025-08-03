@@ -1,5 +1,4 @@
 export function sceneTrendLine({crimeData, COLORS, WIDTH, HEIGHT, MARGIN, annotationText, captionText}) {
-  // Show a horizontal bar chart of crime counts by type for 2025
   const latestYear = 2025;
   const filtered = crimeData.filter(d => d.Year === latestYear && d["Primary Type"]);
   const typeCounts = d3.rollups(
@@ -7,18 +6,15 @@ export function sceneTrendLine({crimeData, COLORS, WIDTH, HEIGHT, MARGIN, annota
     v => v.length,
     d => d["Primary Type"]
   ).sort((a, b) => b[1] - a[1]);
-
-  // Color scale for crime types (consistent with other scenes)
   const crimeTypes = typeCounts.map(d => d[0]);
   const colorScale = d3.scaleOrdinal()
     .domain(crimeTypes)
     .range(d3.schemeTableau10.concat(d3.schemeSet2, d3.schemeSet3));
 
-  d3.select("#scene-caption").html(captionText || `
-Crime breakdown for ${latestYear}: Which types are most common? This chart shows the number of reported crimes by type for the latest year in the dataset. Hover bars for details.`);
+  d3.select("#scene-caption").html(captionText || `Crime breakdown for 2025.`);
 
   const container = d3.select("#viz");
-  container.html(""); // Clear previous content
+  container.html(""); 
   const svg = container.append("svg")
     .attr("viewBox", `0 0 ${WIDTH} ${HEIGHT}`);
 
@@ -30,7 +26,6 @@ Crime breakdown for ${latestYear}: Which types are most common? This chart shows
     .style("font-weight", "bold")
     .text(`Crime Types in ${latestYear}`);
 
-  // Tooltip div
   let tooltip = container.select(".tooltip");
   if (tooltip.empty()) {
     tooltip = container.append("div")

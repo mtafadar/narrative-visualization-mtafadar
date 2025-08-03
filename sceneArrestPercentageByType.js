@@ -1,5 +1,5 @@
 export function sceneArrestPercentageByType({ crimeData, COLORS, WIDTH, HEIGHT }) {
-  d3.select("#scene-caption").html(`Percentage of crimes resulting in arrest, grouped by type (2018–2025). This gives insights into whether certain types of crimes are more likely to result in arrests, which can inform law enforcement effectiveness.`);
+  d3.select("#scene-caption").html(`Percentage of crimes resulting in arrest, grouped by type (2022–2025). This gives insights into whether certain types of crimes are more likely to result in arrests, which can inform law enforcement effectiveness.`);
 
   const container = d3.select("#viz");
   container.html("");

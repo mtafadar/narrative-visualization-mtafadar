@@ -1,8 +1,7 @@
 export function sceneCrimeMapAnimated({ crimeData, COLORS, WIDTH, HEIGHT, captionText }) {
-  // Use all data, sorted by date
   let sample = crimeData.filter(d => d.Date).sort((a, b) => new Date(a.Date) - new Date(b.Date));
 
-  d3.select("#scene-caption").html(captionText || `Animated map of Chicago crimes (2018–2025). Crimes appear over time, showing spatial and temporal patterns. Only Date, Primary Type, Latitude, Longitude, and Description are used.`);
+  d3.select("#scene-caption").html(captionText || `Animated map of Chicago crimes. Crimes appear over time, showing spatial and temporal patterns. Only Date, Primary Type, Latitude, Longitude, and Description are used.`);
   const container = d3.select("#viz");
   container.html("");
   const svg = container.append("svg")

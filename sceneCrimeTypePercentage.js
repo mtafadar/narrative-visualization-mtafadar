@@ -1,6 +1,6 @@
-// Scene 3: Type of Crime by Percentage per Year (Stacked Bar Chart)
+
 export function sceneCrimeTypePercentage({ crimeData, COLORS, WIDTH, HEIGHT }) {
-  d3.select("#scene-caption").html(`Percentage of each crime type per year (2018–2025). Next scene may take time to load since dataset is quite large.`);
+  d3.select("#scene-caption").html(`Percentage of each crime type per year (2022–2025)`);
 
   const container = d3.select("#viz");
   container.html("");
@@ -8,7 +8,7 @@ export function sceneCrimeTypePercentage({ crimeData, COLORS, WIDTH, HEIGHT }) {
   const svg = container.append("svg")
     .attr("viewBox", `0 0 ${WIDTH} ${HEIGHT}`);
 
-  // Filter and normalize data
+
   const filteredData = crimeData.filter(d =>
     d.Year && d["Primary Type"] && d["Primary Type"].trim() !== ""
   ).map(d => ({
@@ -25,16 +25,16 @@ export function sceneCrimeTypePercentage({ crimeData, COLORS, WIDTH, HEIGHT }) {
     return;
   }
 
-  // Get list of years and crime types
+
   const years = Array.from(new Set(filteredData.map(d => d.Year))).sort();
   const types = Array.from(new Set(filteredData.map(d => d.normType))).filter(t => t && t.trim() !== "").sort();
 
-  // Prepare color scale
+
   const color = d3.scaleOrdinal()
     .domain(types)
     .range(d3.schemeCategory10.concat(d3.schemeSet2, d3.schemeSet3, d3.schemePaired, d3.schemeDark2, d3.schemeAccent));
 
-  // Count crimes per year and type
+
   const yearTypeCounts = {};
   years.forEach(year => {
     yearTypeCounts[year] = {};
@@ -49,7 +49,6 @@ export function sceneCrimeTypePercentage({ crimeData, COLORS, WIDTH, HEIGHT }) {
     }
   });
 
-  // Calculate percent per year and type
   const percentByYearType = {};
   years.forEach(year => {
     const total = types.reduce((sum, type) => sum + yearTypeCounts[year][type], 0);
@@ -59,7 +58,7 @@ export function sceneCrimeTypePercentage({ crimeData, COLORS, WIDTH, HEIGHT }) {
     });
   });
 
-  // Set up scales
+  
   const x = d3.scaleBand().domain(years).range([180, WIDTH - 40]).padding(0.2);
   const y = d3.scaleLinear().domain([0, 100]).range([HEIGHT - 60, 60]);
 
@@ -70,7 +69,7 @@ export function sceneCrimeTypePercentage({ crimeData, COLORS, WIDTH, HEIGHT }) {
     .attr("transform", `translate(180,0)`)
     .call(d3.axisLeft(y));
 
-  // Stack bars
+  
   const yOffset = {};
   years.forEach(year => yOffset[year] = 0);
 
@@ -106,7 +105,7 @@ export function sceneCrimeTypePercentage({ crimeData, COLORS, WIDTH, HEIGHT }) {
     });
   });
 
-  // Title
+
   svg.append("text")
     .attr("x", WIDTH / 2)
     .attr("y", 30)

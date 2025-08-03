@@ -1,6 +1,8 @@
 export function sceneIntro({COLORS, WIDTH, HEIGHT, addAnnotation, captionText}) {
   d3.select("#scene-caption").html(captionText || `
-Chicago is one of America largest  and great city.  Very iconic  skyline to legendary jazz clubs to some of word class museums.  However, beneath  the city rich culture and busy streets lies a very complex story, and sometime  marked by challenges such crime. Today we will look into the Chicago crime data from 2022 to 2025 (July). Dataset is quite large so I normalized it. The difference of few percentage may suggest greater then it its showing in the graphs since data is normalized.`);
+Chicago is one of America largest  and great city.  Very iconic  skyline to legendary jazz clubs to some of word class museums.  However, beneath  the city rich culture and busy streets lies a very complex story, and sometime  marked by challenges such crime.  Dataset is quite large so I normalized it. The difference of few percentage may suggest greater then it its showing in the graphs since data is normalized. I took 10,000 data points from the original dataset in random order, making sure that data from each year is proportionally represented. As a result, the findings may be slightly skewed, and even small percentage differences may appear more significant in the graphs due to normalization.
+
+`);
 
   const svg = d3.select("#viz").html("").append("svg")
     .attr("viewBox", `0 0 ${WIDTH} ${HEIGHT}`);

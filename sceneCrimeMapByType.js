@@ -99,6 +99,6 @@ export function sceneCrimeMapByType({ crimeData, COLORS, WIDTH, HEIGHT }) {
       .style("font-size", "18px")
       .text("Crime Map by Type");
 
-    d3.select("#scene-caption").html(`This map shows a random sample of 5,000 crimes in Chicago, colored by type. Explore spatial patterns and compare the prevalence of different crime categories across the city.`);
+    d3.select("#scene-caption").html(`This map shows crimes in Chicago geographically, colored by type. Explore spatial patterns and compare the prevalence of different crime categories across the city.`);
   });
 }
